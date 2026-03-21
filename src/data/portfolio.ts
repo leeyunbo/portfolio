@@ -287,6 +287,7 @@ export const sideProjects = [
     ],
     tech: ['Python', 'FastAPI', 'Claude API', 'Gemini API', 'ChromaDB', 'APScheduler'],
     github: 'https://github.com/leeyunbo/stock-briefing',
+    link: 'https://dailymoneydive.com',
     live: true,
     diagram: '/diagrams/stock-briefing.svg',
     diagramDark: '/diagrams/stock-briefing.svg',
