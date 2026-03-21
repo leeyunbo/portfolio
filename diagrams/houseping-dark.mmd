@@ -1,0 +1,47 @@
+graph TD
+  REQ["API Request / Scheduler"]
+  SC["SubscriptionCollector"]
+  FPC["FallbackProviderChain"]
+
+  subgraph Fallback["Fallback Chain (순서대로 시도)"]
+    direction TB
+    LH_WEB["① LH Web Adapter<br/>(웹 스크래핑)"]
+    LH_API["② LH API Adapter<br/>(공공데이터 API)"]
+    LH_DB["③ LH DB Adapter<br/>(PostgreSQL 캐시)"]
+  end
+
+  subgraph Port["Port / Adapter"]
+    direction TB
+    SP["SubscriptionProvider<br/>(Port Interface)"]
+    NF["NotificationSender<br/>(Port Interface)"]
+  end
+
+  subgraph Adapter["Notification Adapters"]
+    direction LR
+    SLACK["Slack Adapter"]
+    TG["Telegram Adapter"]
+  end
+
+  subgraph Store["Persistence"]
+    PG[("PostgreSQL")]
+  end
+
+  REQ --> SC
+  SC --> FPC
+  FPC --> LH_WEB
+  LH_WEB -->|"실패 시"| LH_API
+  LH_API -->|"실패 시"| LH_DB
+  LH_WEB -.->|"implements"| SP
+  LH_API -.->|"implements"| SP
+  LH_DB -.->|"implements"| SP
+  FPC -->|"성공 결과"| Store
+  Store --> NF
+  NF --> SLACK
+  NF --> TG
+  SLACK -.->|"implements"| NF
+  TG -.->|"implements"| NF
+
+  style Fallback fill:#172554,stroke:#3b82f6,color:#bfdbfe
+  style Port fill:#14332a,stroke:#22c55e,color:#a7f3d0
+  style Adapter fill:#422006,stroke:#f59e0b,color:#fde68a
+  style Store fill:#3b0d1e,stroke:#ec4899,color:#fbcfe8

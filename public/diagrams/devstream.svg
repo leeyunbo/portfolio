@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 195" font-family="Pretendard, system-ui, sans-serif">
+  <!-- Dashed divider -->
+  <line x1="310" y1="5" x2="310" y2="190" stroke="#e4e4e7" stroke-width="1" stroke-dasharray="4"/>
+
+  <!-- Left: 뉴스 수집 -->
+  <text x="155" y="16" text-anchor="middle" font-size="10" font-weight="600" fill="#a1a1aa">뉴스 수집</text>
+
+  <rect x="30" y="28" width="250" height="50" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="155" y="49" text-anchor="middle" font-size="12" font-weight="600" fill="#2e7d32">뉴스 크롤러</text>
+  <text x="155" y="66" text-anchor="middle" font-size="8" fill="#388e3c">HackerNews · Naver News · 30분 주기</text>
+
+  <line x1="155" y1="78" x2="155" y2="98" stroke="#9e9e9e" stroke-width="1.5" marker-end="url(#al)"/>
+
+  <rect x="30" y="98" width="250" height="36" rx="10" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+  <text x="155" y="121" text-anchor="middle" font-size="12" font-weight="600" fill="#880e4f">PostgreSQL</text>
+
+  <!-- Right: 기사 생성 -->
+  <text x="465" y="16" text-anchor="middle" font-size="10" font-weight="600" fill="#a1a1aa">기사 생성</text>
+
+  <rect x="340" y="28" width="250" height="58" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5"/>
+  <text x="465" y="48" text-anchor="middle" font-size="12" font-weight="600" fill="#6a1b9a">AI 처리 배치</text>
+  <text x="465" y="64" text-anchor="middle" font-size="9" fill="#7b1fa2">매주 월요일 · Claude API</text>
+  <text x="465" y="77" text-anchor="middle" font-size="9" fill="#7b1fa2">토픽 클러스터링 · 기사 생성</text>
+
+  <line x1="465" y1="86" x2="465" y2="106" stroke="#9e9e9e" stroke-width="1.5" marker-end="url(#al)"/>
+
+  <rect x="340" y="106" width="250" height="36" rx="10" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+  <text x="465" y="129" text-anchor="middle" font-size="12" font-weight="600" fill="#880e4f">PostgreSQL</text>
+
+  <line x1="465" y1="142" x2="465" y2="162" stroke="#9e9e9e" stroke-width="1.5" marker-end="url(#al)"/>
+
+  <rect x="340" y="162" width="250" height="24" rx="6" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="465" y="178" text-anchor="middle" font-size="9" font-weight="600" fill="#757575">REST API · 웹 앱</text>
+
+  <defs>
+    <marker id="al" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9e9e9e"/>
+    </marker>
+  </defs>
+</svg>

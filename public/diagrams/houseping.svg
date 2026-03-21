@@ -1,0 +1,162 @@
+<svg viewBox="0 0 1100 740" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
+  <rect width="1100" height="740" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="550" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#18181b">Houseping — System Architecture</text>
+
+  <!-- ── Layer 1: External Data Sources ── -->
+  <rect x="30" y="56" width="760" height="110" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="50" y="76" font-size="11" font-weight="700" fill="#16a34a" letter-spacing="1">① 외부 데이터 소스</text>
+
+  <rect x="50" y="86" width="150" height="64" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="125" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">청약Home API</text>
+  <text x="125" y="126" text-anchor="middle" font-size="10" fill="#6b7280">청약공고 · 분양가</text>
+  <text x="125" y="140" text-anchor="middle" font-size="10" fill="#6b7280">경쟁률 · 공공데이터</text>
+
+  <rect x="220" y="86" width="140" height="64" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="290" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">LH Center</text>
+  <text x="290" y="126" text-anchor="middle" font-size="10" fill="#6b7280">임대·분양 청약</text>
+  <text x="290" y="140" text-anchor="middle" font-size="10" fill="#6b7280">Scraper (Fallback)</text>
+
+  <rect x="378" y="86" width="160" height="64" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="458" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">국토부 실거래가 API</text>
+  <text x="458" y="126" text-anchor="middle" font-size="10" fill="#6b7280">아파트 매매 실거래가</text>
+  <text x="458" y="140" text-anchor="middle" font-size="10" fill="#6b7280">일 1회 동기화</text>
+
+  <rect x="556" y="86" width="210" height="64" rx="6" fill="#fdf4ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="661" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#7c3aed">Claude API</text>
+  <text x="661" y="126" text-anchor="middle" font-size="10" fill="#6b7280">주간 블로그 포스트 생성</text>
+  <text x="661" y="140" text-anchor="middle" font-size="10" fill="#6b7280">TOP N 청약 분석</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="410" y1="166" x2="410" y2="186" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="420" y="179" font-size="10" fill="#94a3b8">HTTP / API 호출</text>
+
+  <!-- ── Layer 2: houseping-infra ── -->
+  <rect x="30" y="190" width="760" height="100" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="50" y="210" font-size="11" font-weight="700" fill="#1d4ed8" letter-spacing="1">② houseping-infra   |   외부 시스템 어댑터 (Port 구현체)</text>
+
+  <rect x="50" y="220" width="220" height="56" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="160" y="241" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">infrastructure/api/</text>
+  <text x="160" y="257" text-anchor="middle" font-size="10" fill="#6b7280">SubscriptionClient · RealEstateClient</text>
+  <text x="160" y="270" text-anchor="middle" font-size="10" fill="#6b7280">ClaudeClient · FallbackProviderChain</text>
+
+  <rect x="290" y="220" width="200" height="56" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="390" y="241" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">infrastructure/persistence/</text>
+  <text x="390" y="257" text-anchor="middle" font-size="10" fill="#6b7280">SubscriptionStore · PriceStore</text>
+  <text x="390" y="270" text-anchor="middle" font-size="10" fill="#6b7280">NotificationStore</text>
+
+  <rect x="510" y="220" width="260" height="56" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="640" y="241" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">infrastructure/formatter/</text>
+  <text x="640" y="257" text-anchor="middle" font-size="10" fill="#6b7280">SlackFormatter · TelegramFormatter</text>
+  <text x="640" y="270" text-anchor="middle" font-size="10" fill="#6b7280">알림 메시지 포맷터</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="410" y1="290" x2="410" y2="310" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="420" y="303" font-size="10" fill="#94a3b8">Port Interface 구현</text>
+
+  <!-- ── Layer 3: houseping-core ── -->
+  <rect x="30" y="314" width="760" height="106" rx="8" fill="#fafafa" stroke="#d1d5db" stroke-width="2"/>
+  <text x="50" y="334" font-size="11" font-weight="700" fill="#111827" letter-spacing="1">③ houseping-core   |   도메인 · Port 인터페이스 · 서비스</text>
+
+  <rect x="50" y="344" width="170" height="62" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="135" y="364" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">core/domain/</text>
+  <text x="135" y="380" text-anchor="middle" font-size="10" fill="#6b7280">Subscription · Price</text>
+  <text x="135" y="394" text-anchor="middle" font-size="10" fill="#6b7280">가격 배지 · 예상 차익 계산</text>
+
+  <rect x="240" y="344" width="220" height="62" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="350" y="364" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">core/port/   (9개 인터페이스)</text>
+  <text x="350" y="380" text-anchor="middle" font-size="10" fill="#6b7280">SubscriptionProvider · PersistencePort</text>
+  <text x="350" y="394" text-anchor="middle" font-size="10" fill="#6b7280">NotificationSender · BlogPublisher</text>
+
+  <rect x="480" y="344" width="290" height="62" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="625" y="364" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">core/service/   (14개)</text>
+  <text x="625" y="380" text-anchor="middle" font-size="10" fill="#6b7280">SubscriptionService · PriceAnalysisService</text>
+  <text x="625" y="394" text-anchor="middle" font-size="10" fill="#6b7280">BlogPipelineService · NotificationService</text>
+
+  <!-- Arrows 3 → 4 -->
+  <line x1="240" y1="420" x2="240" y2="444" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="420" x2="580" y2="444" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── Layer 4: web + admin ── -->
+  <rect x="30" y="448" width="365" height="86" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="50" y="468" font-size="11" font-weight="700" fill="#c2410c" letter-spacing="1">④ houseping-web</text>
+  <text x="212" y="494" text-anchor="middle" font-size="11" font-weight="600" fill="#9a3412">공개 웹 (Thymeleaf)</text>
+  <text x="212" y="510" text-anchor="middle" font-size="10" fill="#6b7280">청약 목록 · 시세 비교 · 경쟁률 조회</text>
+  <text x="212" y="524" text-anchor="middle" font-size="10" fill="#6b7280">가점 계산기 · 청약 가이드 · OAuth2 (Naver)</text>
+
+  <rect x="405" y="448" width="385" height="86" rx="8" fill="#fdf2f8" stroke="#f0abfc" stroke-width="1.5"/>
+  <text x="425" y="468" font-size="11" font-weight="700" fill="#86198f" letter-spacing="1">④ houseping-admin</text>
+  <text x="597" y="494" text-anchor="middle" font-size="11" font-weight="600" fill="#701a75">관리자 콘솔</text>
+  <text x="597" y="510" text-anchor="middle" font-size="10" fill="#6b7280">데이터 수집 트리거 · 블로그 파이프라인 관리</text>
+  <text x="597" y="524" text-anchor="middle" font-size="10" fill="#6b7280">알림 발송 · 데이터 동기화 수동 실행</text>
+
+  <!-- Arrows 4 → 5 -->
+  <line x1="212" y1="534" x2="212" y2="558" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="597" y1="534" x2="597" y2="558" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── Layer 5: External Targets ── -->
+  <rect x="30" y="562" width="760" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="582" font-size="11" font-weight="700" fill="#475569" letter-spacing="1">⑤ 연동 대상</text>
+
+  <rect x="55" y="592" width="120" height="36" rx="20" fill="#336791"/>
+  <text x="115" y="615" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">PostgreSQL</text>
+
+  <rect x="195" y="592" width="120" height="36" rx="20" fill="#4a154b"/>
+  <text x="255" y="615" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Slack</text>
+
+  <rect x="335" y="592" width="120" height="36" rx="20" fill="#2ca5e0"/>
+  <text x="395" y="615" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Telegram</text>
+
+  <rect x="475" y="592" width="140" height="36" rx="20" fill="#03C75A"/>
+  <text x="545" y="615" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Naver Blog</text>
+
+  <rect x="635" y="592" width="140" height="36" rx="20" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5"/>
+  <text x="705" y="615" text-anchor="middle" font-size="12" font-weight="600" fill="#1a73e8">Naver OAuth2</text>
+
+  <!-- ── App Module (right side top) ── -->
+  <rect x="810" y="56" width="266" height="240" rx="8" fill="#1c1917" stroke="#44403c" stroke-width="1.5"/>
+  <text x="943" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#f5f5f4">houseping-app</text>
+  <text x="943" y="98" text-anchor="middle" font-size="10" fill="#a8a29e">Spring Boot 엔트리포인트</text>
+
+  <rect x="826" y="108" width="234" height="26" rx="4" fill="#292524"/>
+  <text x="943" y="126" text-anchor="middle" font-size="11" font-weight="600" fill="#a3e635">Scheduler</text>
+
+  <text x="826" y="152" font-size="10" fill="#d6d3d1">매일 01:00  청약 공고 동기화</text>
+  <text x="826" y="167" font-size="10" fill="#d6d3d1">매일 02:00  실거래가 동기화</text>
+  <text x="826" y="182" font-size="10" fill="#d6d3d1">매일 09:00  가격 배지 계산</text>
+  <text x="826" y="197" font-size="10" fill="#d6d3d1">매주 월요일  블로그 파이프라인</text>
+  <text x="826" y="212" font-size="10" fill="#d6d3d1">실시간       Slack·Telegram 알림</text>
+
+  <rect x="826" y="226" width="234" height="26" rx="4" fill="#292524"/>
+  <text x="943" y="244" text-anchor="middle" font-size="10" font-weight="600" fill="#fb923c">의존: core + infra + web + admin</text>
+
+  <!-- ── Architecture Evolution (right side bottom) ── -->
+  <rect x="810" y="314" width="266" height="230" rx="8" fill="#fafafa" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="943" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="#111827">아키텍처 변천사</text>
+
+  <rect x="826" y="344" width="234" height="22" rx="4" fill="#dcfce7"/>
+  <text x="943" y="359" text-anchor="middle" font-size="10" fill="#166534">1단계 — 헥사고날 풀세트 (1월)</text>
+  <text x="826" y="378" font-size="10" fill="#6b7280">→ in/out 포트, UseCase 인터페이스 풀세트</text>
+  <text x="826" y="391" font-size="10" fill="#6b7280">→ 과한 추상화, 생산성 저하</text>
+
+  <rect x="826" y="400" width="234" height="22" rx="4" fill="#dbeafe"/>
+  <text x="943" y="415" text-anchor="middle" font-size="10" fill="#1e40af">2단계 — 실용적 레이어드 (2월 초)</text>
+  <text x="826" y="434" font-size="10" fill="#6b7280">→ 외부 연동에만 Port/Adapter 유지</text>
+  <text x="826" y="447" font-size="10" fill="#6b7280">→ 단일 모듈, admin↔web 빌드 간섭</text>
+
+  <rect x="826" y="456" width="234" height="22" rx="4" fill="#fef3c7"/>
+  <text x="943" y="471" text-anchor="middle" font-size="10" fill="#92400e">3단계 — Gradle 멀티모듈 (2월 중순)</text>
+  <text x="826" y="490" font-size="10" fill="#6b7280">→ 4개 모듈 분리, 빌드 격리</text>
+  <text x="826" y="503" font-size="10" fill="#6b7280">→ infra 변경 시 전체 리빌드 잔존</text>
+
+  <rect x="826" y="512" width="234" height="22" rx="4" fill="#111827"/>
+  <text x="943" y="527" text-anchor="middle" font-size="10" font-weight="700" fill="#f5f5f4">4단계 — 5모듈 + Port 분리 (현재)</text>
+
+  <!-- Arrow defs -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

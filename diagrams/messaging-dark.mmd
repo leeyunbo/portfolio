@@ -1,0 +1,25 @@
+graph TD
+  B["🚀 Bootstrap Layer\n(SMS · Kakao · RCS · Naver)\n채널별 독립 배포 단위"]
+  U["📦 UseCase Layer\n채널별 발송 오케스트레이션"]
+  P["🔌 Platform Layer\nSKT · KT · LG+ · Kakao · RCS · Naver\n외부 API Adapter"]
+  I["🗄️ Infrastructure Layer\nR2DBC · RabbitMQ · Netty"]
+  C["💎 Core Layer\n채널별 Domain · Protocol · Routing\nPure Domain, 의존성 없음"]
+  L["🔧 Library\nID Generator · Logging · Webhook"]
+
+  B --> U
+  B --> P
+  B --> I
+  U --> C
+  P --> C
+  I --> C
+  L -.-> B
+  L -.-> U
+  L -.-> P
+  L -.-> I
+
+  style B fill:#2e1065,stroke:#a855f7,color:#e9d5ff
+  style U fill:#172554,stroke:#3b82f6,color:#bfdbfe
+  style P fill:#422006,stroke:#f59e0b,color:#fde68a
+  style I fill:#3b0d1e,stroke:#ec4899,color:#fbcfe8
+  style C fill:#14332a,stroke:#22c55e,color:#a7f3d0
+  style L fill:#27272a,stroke:#52525b,color:#a1a1aa

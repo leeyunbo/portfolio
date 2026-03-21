@@ -1,0 +1,237 @@
+---
+import { skillGroups, careers, workProjects, sideProjects } from '../data/portfolio';
+---
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" />
+    <title>이윤복 | Backend Developer</title>
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
+        color: #27272a;
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .mono { font-family: 'JetBrains Mono', monospace; }
+
+      /* Layout */
+      .page { max-width: 800px; margin: 0 auto; padding: 48px 56px; }
+
+      /* Header */
+      .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; border-bottom: 2px solid #18181b; padding-bottom: 20px; }
+      .header-left h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #18181b; margin-bottom: 2px; }
+      .header-left .role { font-size: 14px; font-weight: 500; color: #3b82f6; margin-bottom: 8px; }
+      .header-left .intro { font-size: 13px; color: #52525b; line-height: 1.7; max-width: 480px; }
+      .header-right { text-align: right; font-size: 12px; color: #71717a; line-height: 1.8; }
+
+      /* Section */
+      .section { margin-bottom: 28px; }
+      .section-title {
+        font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+        color: #18181b; border-bottom: 1px solid #e4e4e7; padding-bottom: 6px; margin-bottom: 14px;
+      }
+
+      /* Skills */
+      .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .skill-group h4 { font-size: 11px; font-weight: 700; color: #71717a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+      .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+      .skill-tag { font-size: 11px; color: #3f3f46; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 4px; padding: 2px 7px; }
+
+      /* Experience */
+      .career { margin-bottom: 14px; }
+      .career-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .career-header h3 { font-size: 14px; font-weight: 700; color: #18181b; }
+      .career-header .period { font-size: 11px; color: #a1a1aa; }
+      .career .role { font-size: 12px; color: #3b82f6; font-weight: 500; margin: 1px 0 4px; }
+      .career .desc { font-size: 12px; color: #52525b; margin-bottom: 6px; }
+      .career-projects { list-style: none; }
+      .career-projects li { font-size: 12px; color: #71717a; display: flex; gap: 6px; line-height: 1.7; }
+      .career-projects li .name { color: #52525b; }
+
+      /* Systems */
+      .systems { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+      .system-card { border: 1px solid #e4e4e7; border-radius: 8px; padding: 12px 14px; }
+      .system-card h4 { font-size: 13px; font-weight: 700; color: #18181b; }
+      .system-card .sub { font-size: 11px; color: #3b82f6; margin-bottom: 6px; }
+      .system-card ul { list-style: none; }
+      .system-card li { font-size: 11px; color: #52525b; line-height: 1.6; display: flex; gap: 5px; margin-bottom: 2px; }
+      .system-card li::before { content: "·"; color: #a1a1aa; font-weight: 700; flex-shrink: 0; }
+
+      /* Project card */
+      .project-card { border: 1px solid #e4e4e7; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+      .project-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+      .project-head h3 { font-size: 14px; font-weight: 700; color: #18181b; }
+      .badge { font-size: 10px; color: #3b82f6; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 99px; padding: 1px 8px; font-weight: 600; }
+      .project-summary { font-size: 12px; color: #52525b; margin-bottom: 8px; line-height: 1.6; }
+      .tech-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+      .tech-tag { font-size: 10px; color: #52525b; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 4px; padding: 1px 6px; font-family: 'JetBrains Mono', monospace; }
+      .project-section { margin-bottom: 8px; }
+      .project-section h4 { font-size: 12px; font-weight: 700; color: #3f3f46; margin-bottom: 3px; display: flex; align-items: center; gap: 5px; }
+      .project-section h4::before { content: ""; width: 3px; height: 12px; background: #3b82f6; border-radius: 2px; flex-shrink: 0; }
+      .project-section ul { list-style: none; }
+      .project-section li { font-size: 12px; color: #52525b; line-height: 1.65; display: flex; gap: 6px; margin-bottom: 1px; }
+      .project-section li::before { content: "-"; color: #a1a1aa; flex-shrink: 0; }
+
+      /* Side project */
+      .side-card { border: 1px solid #e4e4e7; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+      .side-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+      .side-head h3 { font-size: 13px; font-weight: 700; color: #18181b; }
+      .side-links { font-size: 10px; color: #a1a1aa; display: flex; gap: 10px; }
+      .side-desc { list-style: none; margin-bottom: 8px; }
+      .side-desc li { font-size: 12px; color: #52525b; line-height: 1.6; display: flex; gap: 6px; }
+      .side-desc li::before { content: "-"; color: #a1a1aa; flex-shrink: 0; }
+      .diagram-box { border: 1px solid #e4e4e7; border-radius: 6px; padding: 8px; margin-bottom: 8px; background: #fafafa; }
+      .diagram-box img { width: 100%; height: auto; display: block; }
+
+      /* Print */
+      .no-print { position: fixed; top: 16px; right: 16px; z-index: 50; }
+      .print-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        background: #18181b; color: #fff; border: none; border-radius: 8px;
+        padding: 10px 18px; font-size: 13px; font-weight: 600; cursor: pointer;
+        font-family: 'Pretendard Variable', sans-serif;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        transition: background 0.15s;
+      }
+      .print-btn:hover { background: #3f3f46; }
+
+      @media print {
+        .no-print { display: none !important; }
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .page { padding: 0; max-width: none; }
+        .project-card, .side-card { break-inside: avoid; }
+        .section { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print">
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        PDF로 저장
+      </button>
+    </div>
+
+    <div class="page">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1>이윤복</h1>
+          <div class="role">Backend Developer</div>
+          <p class="intro">
+            약 4년간 대용량 메시징 시스템을 운영하며, 운영 현장에서 문제를 먼저 발견하고
+            팀을 설득해 바꿔온 백엔드 개발자입니다.
+          </p>
+        </div>
+        <div class="header-right">
+          <div>yunbok95@gmail.com</div>
+          <div>github.com/leeyunbo</div>
+        </div>
+      </header>
+
+      <!-- Skills -->
+      <div class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          {skillGroups.map(group => (
+            <div class="skill-group">
+              <h4>{group.category}</h4>
+              <div class="skill-tags">
+                {group.items.map(item => (
+                  <span class="skill-tag">{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="section">
+        <h2 class="section-title">Experience</h2>
+        {careers.map(career => (
+          <div class="career">
+            <div class="career-header">
+              <h3>{career.company}</h3>
+              <span class="period mono">{career.period}</span>
+            </div>
+            <div class="role">{career.role}</div>
+            <p class="desc">{career.description}</p>
+          </div>
+        ))}
+
+      </div>
+
+      <!-- Work Projects -->
+      <div class="section">
+        <h2 class="section-title">실무 프로젝트</h2>
+        {workProjects.map(project => (
+          <div class="project-card">
+            <div class="project-head">
+              <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                <h3>{project.title}</h3>
+                {project.inProgress && <span class="badge">진행 중</span>}
+              </div>
+            </div>
+            <p class="project-summary">{project.summary}</p>
+            <div class="tech-tags">
+              {project.tech.map(t => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
+            {project.sections.map(s => (
+              <div class="project-section">
+                <h4>{s.label}</h4>
+                <ul>
+                  {s.items.map(item => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <!-- Side Projects -->
+      <div class="section">
+        <h2 class="section-title">개인 프로젝트</h2>
+        {sideProjects.map(project => (
+          <div class="side-card">
+            <div class="side-head">
+              <h3>{project.title}</h3>
+              <div class="side-links">
+                {project.link && <span>{project.link.replace('https://', '')}</span>}
+                <span>{project.github.replace('https://', '')}</span>
+              </div>
+            </div>
+            <ul class="side-desc">
+              {project.description.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <div class="tech-tags">
+              {project.tech.map(t => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
+            {project.diagram && (
+              <div class="diagram-box">
+                <img src={project.diagram} alt={`${project.title} architecture`} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </body>
+</html>

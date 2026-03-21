@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Light theme */
+html:not(.dark) body {
+  background-color: #fafafa;
+  color: #27272a;
+}
+
+html:not(.dark) ::selection {
+  background-color: rgb(59 130 246 / 0.2);
+}
+
+.dark ::selection {
+  background-color: rgb(59 130 246 / 0.3);
+}
