@@ -38,7 +38,7 @@ export const workProjects = [
     summary: '반복적인 운영 업무와 타 팀 문의 대응을 자동화하는 AI 에이전트 시스템',
     impact: '운영 문의 월 120건 → 0건',
     tech: ['Spring Boot', 'Langchain4j', 'RAG', 'ElasticSearch', 'InfluxDB', 'MariaDB'],
-    inProgress: true,
+    inProgress: false,
     sections: [
       {
         label: '배경',
