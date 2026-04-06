@@ -22,7 +22,7 @@ export const careers = [
     period: '2022.01 ~ 현재',
     company: '다우기술',
     role: 'Backend Developer',
-    description: '카카오톡/문자 발송 도메인의 REST API 및 Netty 기반 Gateway 서버 설계·운영. 월 3억 건 이상의 메시지를 처리하는 고가용성 시스템을 담당.',
+    description: '카카오톡 발송 도메인의 REST API 및 Netty 기반 Gateway 서버 설계·운영. 월 3억 건 이상의 메시지를 처리하는 고가용성 시스템을 담당.',
   },
   {
     period: '2020.09 ~ 2021.11',
