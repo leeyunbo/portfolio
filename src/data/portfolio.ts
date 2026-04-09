@@ -53,7 +53,7 @@ export const workProjects = [
         label: '목표',
         items: [
           'ElasticSearch 도입으로 메시지 추적 및 Exception 상세 원인 분석 기반 마련',
-          'AI 에이전트가 Slack 알람·문의에 대해 ES/InfluxDB/DB를 조회하여 자동 원인 분석 및 응답',
+          'AI 에이전트가 Slack 알람·문의에 대해 ElasticSearch/InfluxDB/DB를 조회하여 자동 원인 분석 및 응답',
           'RAG 적용으로 연동 규격서·운영 문서·운영 이력 문서 기반 질의응답 지원',
           '개발자가 아닌 사업·운영 담당자도 시스템 상태를 직접 조회할 수 있도록 운영 진입 장벽 낮추기',
         ],
@@ -61,7 +61,7 @@ export const workProjects = [
       {
         label: '구현',
         items: [
-          'ES/InfluxDB/DB 조회 및 RAG를 각각 Tool로 분리, LLM이 상황에 맞게 선택·실행',
+          'ElasticSearch/InfluxDB/DB 조회 및 RAG를 각각 Tool로 분리, LLM이 상황에 맞게 선택·실행',
           'RAG는 Gemini 임베딩 모델 기반으로 구축. 한국어 성능과 비용 효율을 고려해 Gemini 임베딩 선택, ElasticSearch를 벡터 스토어로 활용, 문서 특성(섹션별 독립 구조)에 맞는 청킹 전략 적용',
           'SSE 기반 스트리밍 응답 적용으로 사용자 체감 응답 속도 개선',
           '파이프라인 단계별 실행 시간, 토큰 사용량, 비용, RAG Hit/Miss 여부, LLM Tool 선택 결과를 트레이싱 어드민에 기록. 사용자 피드백(좋아요/싫어요)과 함께 품질 지표로 활용하며 프롬프트 및 파이프라인 지속 개선',
