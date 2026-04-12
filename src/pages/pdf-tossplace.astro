@@ -1,5 +1,24 @@
 ---
 import { skillGroups, careers, workProjects, sideProjects } from '../data/portfolio';
+
+const tossplaceOrder = [
+  'ALIO-GW 애플리케이션 레벨 Failover 구현',
+  'ALIO-API CPU 부하 개선',
+  'TCP 통신 모듈 도메인 로직 분리',
+  'AI 에이전트 시스템 개발',
+  'ALIO-API 관심사 분리 구조 개선',
+  '연동 규격서 자동화 및 커스텀 API 문서 시스템 구축',
+];
+
+const summaryOnly = [
+  'AI 에이전트 시스템 개발',
+  '연동 규격서 자동화 및 커스텀 API 문서 시스템 구축',
+  'ALIO-API 관심사 분리 구조 개선',
+];
+
+const sortedProjects = tossplaceOrder
+  .map(t => workProjects.find(p => p.title === t))
+  .filter(Boolean);
 ---
 
 <html lang="ko">
@@ -51,18 +70,6 @@ import { skillGroups, careers, workProjects, sideProjects } from '../data/portfo
       .career-header .period { font-size: 11px; color: #a1a1aa; }
       .career .role { font-size: 12px; color: #3b82f6; font-weight: 500; margin: 1px 0 4px; }
       .career .desc { font-size: 12px; color: #52525b; margin-bottom: 6px; }
-      .career-projects { list-style: none; }
-      .career-projects li { font-size: 12px; color: #71717a; display: flex; gap: 6px; line-height: 1.7; }
-      .career-projects li .name { color: #52525b; }
-
-      /* Systems */
-      .systems { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-      .system-card { border: 1px solid #e4e4e7; border-radius: 8px; padding: 12px 14px; }
-      .system-card h4 { font-size: 13px; font-weight: 700; color: #18181b; }
-      .system-card .sub { font-size: 11px; color: #3b82f6; margin-bottom: 6px; }
-      .system-card ul { list-style: none; }
-      .system-card li { font-size: 11px; color: #52525b; line-height: 1.6; display: flex; gap: 5px; margin-bottom: 2px; }
-      .system-card li::before { content: "·"; color: #a1a1aa; font-weight: 700; flex-shrink: 0; }
 
       /* Project card */
       .project-card { border: 1px solid #e4e4e7; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
@@ -87,8 +94,6 @@ import { skillGroups, careers, workProjects, sideProjects } from '../data/portfo
       .side-desc { list-style: none; margin-bottom: 8px; }
       .side-desc li { font-size: 12px; color: #52525b; line-height: 1.6; display: flex; gap: 6px; }
       .side-desc li::before { content: "-"; color: #a1a1aa; flex-shrink: 0; }
-      .diagram-box { border: 1px solid #e4e4e7; border-radius: 6px; padding: 8px; margin-bottom: 8px; background: #fafafa; }
-      .diagram-box img { width: 100%; height: auto; display: block; }
 
       /* Print */
       .no-print { position: fixed; top: 16px; right: 16px; z-index: 50; }
@@ -169,13 +174,12 @@ import { skillGroups, careers, workProjects, sideProjects } from '../data/portfo
             <p class="desc">{career.description}</p>
           </div>
         ))}
-
       </div>
 
       <!-- Work Projects -->
       <div class="section">
         <h2 class="section-title">실무 프로젝트</h2>
-        {workProjects.map(project => (
+        {sortedProjects.map(project => (
           <div class="project-card">
             <div class="project-head">
               <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
@@ -191,7 +195,6 @@ import { skillGroups, careers, workProjects, sideProjects } from '../data/portfo
               ))}
             </div>
             {project.sections.filter(s => {
-              const summaryOnly = ['AI 에이전트 시스템 개발', '연동 규격서 자동화 및 커스텀 API 문서 시스템 구축', 'ALIO-API 관심사 분리 구조 개선'];
               if (summaryOnly.includes(project.title)) return ['해결', '구현', '성과'].includes(s.label);
               return true;
             }).map(s => (
