@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Security', 'Spring AOP', 'REST API', 'Resilience4j', 'Langchain4j'],
+    items: ['Java', 'Spring Boot', 'Spring Security', 'Spring AOP', 'JPA/Hibernate', 'REST API', 'Resilience4j', 'Langchain4j'],
   },
   {
     category: 'Messaging & Network',
@@ -273,7 +273,7 @@ export const sideProjects = [
       '청약 분양가와 주변 실거래가를 자동 비교해주는 실서비스 (house-ping.com)',
       '운영하며 4번의 아키텍처 진화. Full Hexagonal에서 시작해 실용적인 5모듈 구조로 정착, 변경이 잦은 외부 연동에만 Port/Adapter를 적용하는 방식으로 복잡도와 유연성의 균형을 맞춤',
     ],
-    tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'WebClient', 'Thymeleaf'],
+    tech: ['Java 21', 'Spring Boot', 'JPA/Hibernate', 'PostgreSQL', 'Thymeleaf'],
     github: 'https://github.com/leeyunbo/house-ping',
     link: 'https://house-ping.com',
     live: true,
