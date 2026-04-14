@@ -38,6 +38,7 @@ export const workProjects = [
     summary: '반복적인 운영 업무와 타 팀 문의 대응을 자동화하는 AI 에이전트 시스템',
     impact: '운영 문의 월 120건 → 0건',
     tech: ['Spring Boot', 'Langchain4j', 'RAG', 'ElasticSearch', 'InfluxDB', 'MariaDB'],
+    diagram: '/diagrams/ai-agent.svg',
     inProgress: false,
     sections: [
       {
@@ -160,6 +161,7 @@ export const workProjects = [
     summary: '수동 Failover 7~8분을 자동화하여 10~30초 내 전환, 실패율 50% → 5%로 감소',
     impact: '장애 대응 7~8분 → 10~30초',
     tech: ['Resilience4j', 'CircuitBreaker', 'RabbitMQ', 'Redis'],
+    diagram: '/diagrams/failover.svg',
     sections: [
       {
         label: '발견',
@@ -172,18 +174,19 @@ export const workProjects = [
       {
         label: '분석',
         items: [
-          '전용선으로 IDC별 연결이 고정되어 있어 (안양 IDC선 / 가산 IDC선), L4/L7·DNS 기반 인프라 레벨 전환은 불가. 앱이 자기 전용선 밖으로 나갈 수 없는 구조',
-          '애플리케이션 레벨에서 직접 해결하는 방향으로 결정',
-          '서비스 특성상 시간대별 트래픽 편차가 크므로 고정 임계값이 아닌 동적 임계값이 필요하다고 판단',
+          '인프라/네트워크 레벨 해결이 불가능하므로 애플리케이션에서 장애 감지부터 전환까지 직접 처리하기로 결정',
+          '서비스 특성상 시간대별 트래픽 편차가 커서 고정 임계값으로는 정상 상황에서도 오탐이 잦음 → 동적 임계값 필요',
+          '같은 서버의 다수 Sender 프로세스가 동시에 장애 감지, Failover 할 가능성이 있어 서버 단위로 조율하는 메커니즘 필요',
         ],
       },
       {
         label: '해결',
         items: [
-          'Resilience4j Sliding Window로 실패율 실시간 집계, 시간대별 동적 임계값 적용',
-          'Redis를 통해 각 IDC 상태(정상/장애) 공유·관리',
-          '임계값 초과 시 CircuitBreaker 기반 트래픽 자동 전환',
-          'RabbitMQ로 상태 변경 이벤트 브로드캐스트, 다수 모듈 Event-Driven 동시 전환',
+          'Resilience4j Sliding Window로 실시간 실패율 집계, 시간대별 동적 임계값 적용. 임계값 초과 시 Circuit Breaker 기반 트래픽 자동 전환',
+          'Redis로 서버 단위 목적지 IDC를 공유하여 재기동/신규 Sender 프로세스 동기화',
+          'RabbitMQ fanout으로 상태 변경 이벤트 브로드캐스트, 다수 Sender가 동시 전환',
+          '발행 측은 Redis 사전 조회로 중복 이벤트를 최소화하고, 수신 측은 이미 처리된 이벤트를 소멸시켜 중복 처리 방어',
+          '자동 감지 외에 운영자가 API로 직접 Failover를 트리거할 수 있는 수동 경로 제공',
         ],
       },
       {
@@ -283,8 +286,8 @@ export const sideProjects = [
   {
     title: 'Stock Briefing',
     description: [
-      '총 10개 파이프라인(자동 9개·수동 1개)이 매일 데이터를 수집·분석·발행하는 AI 금융 미디어 자동화 시스템',
-      '운영하며 문제를 발견하고 지속 개선. ChromaDB 시맨틱 중복 제거로 콘텐츠 품질 향상, 트레이싱 대시보드로 LLM 품질 측정 기반 마련, 핫한 토픽을 우선순위 큐로 관리하는 토픽큐 도입',
+      '15개 자동 파이프라인이 매일 70+ 개의 콘텐츠를 수집·분석·발행하는 AI 금융 미디어 자동화 시스템',
+      '지속적인 모니터링과 AI judge 검수로 파이프라인 품질 개선',
     ],
     tech: ['Python', 'FastAPI', 'Claude API', 'Gemini API', 'ChromaDB', 'APScheduler'],
     github: 'https://github.com/leeyunbo/stock-briefing',

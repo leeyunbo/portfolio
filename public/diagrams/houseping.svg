@@ -1,145 +1,90 @@
-<svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
-  <rect width="1100" height="620" fill="#ffffff"/>
+<svg viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
+  <rect width="820" height="520" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="400" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#18181b">Houseping — 모듈 의존 관계</text>
+  <text x="410" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#18181b">Houseping — 모듈 의존 관계</text>
 
   <!-- ── Layer 1: app ── -->
-  <rect x="270" y="56" width="260" height="56" rx="10" fill="#1c1917" stroke="#44403c" stroke-width="1.5"/>
-  <text x="400" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#f5f5f4">houseping-app</text>
-  <text x="400" y="96" text-anchor="middle" font-size="10" fill="#a8a29e">엔트리포인트 · 설정 · 빈 조립</text>
+  <rect x="310" y="60" width="200" height="56" rx="8" fill="#18181b"/>
+  <text x="410" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#fafafa">houseping-app</text>
+  <text x="410" y="100" text-anchor="middle" font-size="10" fill="#a1a1aa">엔트리포인트 · 설정 · 빈 조립</text>
 
   <!-- Arrows: app → 4 modules -->
-  <line x1="310" y1="112" x2="110" y2="160" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="360" y1="112" x2="310" y2="160" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="440" y1="112" x2="490" y2="160" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="490" y1="112" x2="690" y2="160" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="116" x2="120" y2="160" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="385" y1="116" x2="320" y2="160" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="435" y1="116" x2="500" y2="160" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="116" x2="700" y2="160" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- ── Layer 2: web, scheduler, external-api, admin ── -->
-  <rect x="20" y="164" width="180" height="60" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
-  <text x="110" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">houseping-web</text>
-  <text x="110" y="202" text-anchor="middle" font-size="9" fill="#6b7280">공개 웹 · 시세 비교 · 지도</text>
+  <rect x="30" y="164" width="180" height="60" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="120" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">houseping-web</text>
+  <text x="120" y="204" text-anchor="middle" font-size="9" fill="#71717a">공개 웹 · 시세 비교 · 지도</text>
 
-  <rect x="210" y="164" width="200" height="60" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
-  <text x="310" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">houseping-scheduler</text>
-  <text x="310" y="202" text-anchor="middle" font-size="9" fill="#6b7280">@SchedulerMonitor · 배치 수집</text>
+  <rect x="230" y="164" width="180" height="60" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="320" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">houseping-scheduler</text>
+  <text x="320" y="204" text-anchor="middle" font-size="9" fill="#71717a">@SchedulerMonitor · 배치 수집</text>
 
-  <rect x="420" y="164" width="180" height="60" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="510" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">external-api</text>
-  <text x="510" y="202" text-anchor="middle" font-size="9" fill="#6b7280">외부 API · Port 구현체</text>
+  <rect x="430" y="164" width="180" height="60" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="520" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">external-api</text>
+  <text x="520" y="204" text-anchor="middle" font-size="9" fill="#3b82f6">외부 API · Port 구현체</text>
 
-  <rect x="610" y="164" width="180" height="60" rx="10" fill="#fdf2f8" stroke="#f0abfc" stroke-width="1.5"/>
-  <text x="700" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#86198f">houseping-admin</text>
-  <text x="700" y="202" text-anchor="middle" font-size="9" fill="#6b7280">관리자 콘솔 · 수집 트리거</text>
+  <rect x="630" y="164" width="160" height="60" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="710" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">houseping-admin</text>
+  <text x="710" y="204" text-anchor="middle" font-size="9" fill="#71717a">관리자 콘솔 · 수집 트리거</text>
 
   <!-- Arrows: Layer 2 → core -->
-  <!-- web → core (실선) -->
-  <line x1="110" y1="224" x2="310" y2="300" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <!-- scheduler → core (실선) -->
-  <line x1="310" y1="224" x2="370" y2="300" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <!-- external-api → core (점선, 의존성 역전) -->
-  <line x1="510" y1="224" x2="440" y2="300" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
-  <!-- admin → core (실선) -->
-  <line x1="700" y1="224" x2="490" y2="300" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="120" y1="224" x2="320" y2="300" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="224" x2="380" y2="300" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="224" x2="450" y2="300" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-blue)"/>
+  <line x1="710" y1="224" x2="500" y2="300" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- implements Port 라벨 -->
-  <text x="490" y="266" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">implements Port</text>
+  <text x="500" y="266" text-anchor="middle" font-size="9" font-weight="600" fill="#2563eb">implements Port</text>
 
   <!-- ── Layer 3: core ── -->
-  <rect x="210" y="304" width="400" height="100" rx="10" fill="#fafafa" stroke="#d1d5db" stroke-width="2"/>
-  <text x="410" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">houseping-core</text>
-  <text x="410" y="346" text-anchor="middle" font-size="10" fill="#6b7280">도메인 · 서비스 · DB · 포맷터 · 외부 API Port</text>
+  <rect x="220" y="304" width="400" height="100" rx="8" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+  <text x="420" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#18181b">houseping-core</text>
+  <text x="420" y="346" text-anchor="middle" font-size="10" fill="#71717a">도메인 · 서비스 · DB · 포맷터 · 외부 API Port</text>
 
-  <rect x="226" y="358" width="72" height="30" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="262" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#374151">domain</text>
+  <rect x="236" y="358" width="72" height="30" rx="5" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="272" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#52525b">domain</text>
 
-  <rect x="306" y="358" width="52" height="30" rx="5" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="332" y="377" text-anchor="middle" font-size="9" font-weight="700" fill="#1d4ed8">port</text>
+  <rect x="316" y="358" width="52" height="30" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="342" y="377" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">port</text>
 
-  <rect x="366" y="358" width="66" height="30" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="399" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#374151">service</text>
+  <rect x="376" y="358" width="66" height="30" rx="5" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="409" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#52525b">service</text>
 
-  <rect x="440" y="358" width="42" height="30" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="461" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#374151">DB</text>
+  <rect x="450" y="358" width="42" height="30" rx="5" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="471" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#52525b">DB</text>
 
-  <rect x="490" y="358" width="52" height="30" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="516" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#374151">fmt</text>
+  <rect x="500" y="358" width="52" height="30" rx="5" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="526" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#52525b">fmt</text>
 
-  <rect x="550" y="358" width="48" height="30" rx="5" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="574" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#374151">store</text>
+  <rect x="560" y="358" width="48" height="30" rx="5" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="584" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#52525b">store</text>
 
   <!-- Arrow: core → PostgreSQL -->
-  <line x1="410" y1="404" x2="410" y2="436" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="404" x2="420" y2="436" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- PostgreSQL -->
-  <rect x="340" y="440" width="140" height="34" rx="17" fill="#336791"/>
-  <text x="410" y="462" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">PostgreSQL</text>
+  <rect x="350" y="440" width="140" height="34" rx="17" fill="#18181b"/>
+  <text x="420" y="462" text-anchor="middle" font-size="11" font-weight="600" fill="#fafafa">PostgreSQL</text>
 
   <!-- 범례 -->
-  <rect x="20" y="296" width="170" height="62" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="105" y="314" text-anchor="middle" font-size="9" font-weight="700" fill="#475569">범례</text>
-  <line x1="34" y1="328" x2="70" y2="328" stroke="#94a3b8" stroke-width="1.5"/>
-  <text x="80" y="332" font-size="9" fill="#6b7280">직접 의존</text>
-  <line x1="34" y1="346" x2="70" y2="346" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3"/>
-  <text x="80" y="350" font-size="9" fill="#6b7280">의존성 역전 (Port)</text>
+  <line x1="30" y1="492" x2="60" y2="492" stroke="#52525b" stroke-width="1.5"/>
+  <text x="68" y="496" font-size="10" fill="#52525b">직접 의존</text>
 
-  <!-- ══════════════════════════════════ -->
-  <!-- Architecture Evolution (right) -->
-  <!-- ══════════════════════════════════ -->
-  <rect x="820" y="56" width="260" height="510" rx="8" fill="#fafafa" stroke="#e5e7eb" stroke-width="1.5"/>
-  <text x="950" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">아키텍처 변천사</text>
-
-  <rect x="836" y="96" width="228" height="22" rx="4" fill="#dcfce7"/>
-  <text x="950" y="111" text-anchor="middle" font-size="10" fill="#166534">1단계 — 헥사고날 풀세트 (1월)</text>
-  <text x="836" y="130" font-size="9.5" fill="#6b7280">→ in/out 포트, UseCase 인터페이스 풀세트</text>
-  <text x="836" y="143" font-size="9.5" fill="#6b7280">→ 과한 추상화, 생산성 저하</text>
-
-  <rect x="836" y="156" width="228" height="22" rx="4" fill="#dbeafe"/>
-  <text x="950" y="171" text-anchor="middle" font-size="10" fill="#1e40af">2단계 — 실용적 레이어드 (2월 초)</text>
-  <text x="836" y="190" font-size="9.5" fill="#6b7280">→ 외부 연동에만 Port/Adapter 유지</text>
-  <text x="836" y="203" font-size="9.5" fill="#6b7280">→ 단일 모듈, admin↔web 빌드 간섭</text>
-
-  <rect x="836" y="216" width="228" height="22" rx="4" fill="#fef3c7"/>
-  <text x="950" y="231" text-anchor="middle" font-size="10" fill="#92400e">3단계 — Gradle 멀티모듈 (2월 중순)</text>
-  <text x="836" y="250" font-size="9.5" fill="#6b7280">→ 4개 모듈 분리, 빌드 격리</text>
-  <text x="836" y="263" font-size="9.5" fill="#6b7280">→ core에 API+DB 혼재, 변경 전파</text>
-
-  <rect x="836" y="276" width="228" height="22" rx="4" fill="#e0e7ff"/>
-  <text x="950" y="291" text-anchor="middle" font-size="10" fill="#3730a3">4단계 — 5모듈 + Port 전면 적용 (2월 말)</text>
-  <text x="836" y="310" font-size="9.5" fill="#6b7280">→ DB까지 Port로 감싸 과한 간접 레이어</text>
-  <text x="836" y="323" font-size="9.5" fill="#6b7280">→ 필드 추가 시 3곳 수정 필요</text>
-
-  <rect x="836" y="336" width="228" height="22" rx="4" fill="#111827"/>
-  <text x="950" y="351" text-anchor="middle" font-size="10" font-weight="700" fill="#f5f5f4">5단계 — 변경 가능성 기준 재편 (현재)</text>
-  <text x="836" y="370" font-size="9.5" fill="#6b7280">→ DB Port 제거, 외부 API만 격리</text>
-  <text x="836" y="383" font-size="9.5" fill="#6b7280">→ scheduler 분리 (별도 프로세스 대비)</text>
-  <text x="836" y="396" font-size="9.5" fill="#6b7280">→ admin/web은 core만 의존</text>
-
-  <!-- 설계 원칙 -->
-  <rect x="836" y="416" width="228" height="56" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-  <text x="950" y="436" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">설계 원칙</text>
-  <text x="950" y="452" text-anchor="middle" font-size="9.5" fill="#15803d">core = 변경 가능성 낮은 것 (DB 포함)</text>
-  <text x="950" y="465" text-anchor="middle" font-size="9.5" fill="#15803d">external-api = 변경 가능성 높은 것</text>
-
-  <!-- 모듈 요약 -->
-  <rect x="836" y="486" width="228" height="68" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="855" y="502" font-size="9" font-weight="600" fill="#475569">모듈 (7개)</text>
-  <text x="980" y="502" font-size="9" font-weight="600" fill="#475569">역할</text>
-  <line x1="836" y1="508" x2="1064" y2="508" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="855" y="522" font-size="8.5" fill="#64748b">core</text>
-  <text x="980" y="522" font-size="8.5" fill="#64748b">도메인, 서비스, DB</text>
-  <text x="855" y="534" font-size="8.5" fill="#64748b">external-api</text>
-  <text x="980" y="534" font-size="8.5" fill="#64748b">외부 API (Port 구현)</text>
-  <text x="855" y="546" font-size="8.5" fill="#64748b">그 외 3개</text>
-  <text x="980" y="546" font-size="8.5" fill="#64748b">역할별 진입점</text>
+  <line x1="160" y1="492" x2="190" y2="492" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="198" y="496" font-size="10" fill="#52525b">의존성 역전 (Port)</text>
 
   <!-- Arrow defs -->
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+      <path d="M0,0 L0,6 L8,3 z" fill="#d4d4d8"/>
     </marker>
     <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/>
+      <path d="M0,0 L0,6 L8,3 z" fill="#2563eb"/>
     </marker>
   </defs>
 </svg>

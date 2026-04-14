@@ -107,8 +107,18 @@ import { workProjects, sideProjects } from '../data/portfolio';
           </div>
           {project.diagram && (
             <div class="rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-white dark:bg-zinc-900 p-3 mt-2">
-              <img src={project.diagram} alt={`${project.title} architecture`} class="w-full h-auto block dark:hidden" />
-              <img src={project.diagramDark} alt={`${project.title} architecture`} class="w-full h-auto hidden dark:block" />
+              <img
+                src={project.diagram}
+                alt={`${project.title} architecture`}
+                class="w-full h-auto block dark:hidden cursor-zoom-in"
+                data-lightbox={project.diagram}
+              />
+              <img
+                src={project.diagramDark}
+                alt={`${project.title} architecture`}
+                class="w-full h-auto hidden dark:block cursor-zoom-in"
+                data-lightbox={project.diagramDark}
+              />
             </div>
           )}
         </div>
@@ -161,8 +171,23 @@ import { workProjects, sideProjects } from '../data/portfolio';
         </ul>
       </div>
     ))}
+    {project.diagram && (
+      <div class="mt-5 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-white dark:bg-zinc-900 p-3">
+        <img
+          src={project.diagram}
+          alt={`${project.title} architecture`}
+          class="w-full h-auto block cursor-zoom-in"
+          data-lightbox={project.diagram}
+        />
+      </div>
+    )}
   </template>
 ))}
+
+<!-- Image Lightbox -->
+<div id="image-lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-black/80 cursor-zoom-out">
+  <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain" />
+</div>
 
 <script>
   const modal = document.getElementById('project-modal');
@@ -170,6 +195,8 @@ import { workProjects, sideProjects } from '../data/portfolio';
   const modalContent = document.getElementById('modal-content');
   const modalClose = document.getElementById('modal-close');
   const modalBackdrop = document.getElementById('modal-backdrop');
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
 
   document.querySelectorAll('[data-modal-trigger]').forEach(card => {
     card.addEventListener('click', () => {
@@ -195,9 +222,47 @@ import { workProjects, sideProjects } from '../data/portfolio';
     }
   }
 
+  function openLightbox(src: string) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = src;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      if (!modal?.classList.contains('flex')) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // Event delegation for lightbox (works for both initial and modal-injected images)
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const img = target.closest('[data-lightbox]') as HTMLElement | null;
+    if (img) {
+      e.stopPropagation();
+      const src = img.getAttribute('data-lightbox');
+      if (src) openLightbox(src);
+    }
+  });
+
+  lightbox?.addEventListener('click', closeLightbox);
+
   modalClose?.addEventListener('click', closeModal);
   modalBackdrop?.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      if (lightbox?.classList.contains('flex')) {
+        closeLightbox();
+      } else {
+        closeModal();
+      }
+    }
   });
 </script>

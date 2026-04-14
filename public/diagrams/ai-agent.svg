@@ -1,0 +1,96 @@
+<svg viewBox="0 0 820 580" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
+  <rect width="820" height="580" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#18181b">AI 에이전트 시스템 — 운영 문의 자동 응답 에이전트</text>
+
+  <!-- Tech stack annotation -->
+  <text x="410" y="56" text-anchor="middle" font-size="10" fill="#52525b">Spring Boot · Langchain4j · ElasticSearch · InfluxDB · MariaDB</text>
+
+  <!-- ── Flow Header ── -->
+  <text x="30" y="96" font-size="10" font-weight="700" fill="#a1a1aa" letter-spacing="2">FLOW</text>
+  <line x1="30" y1="104" x2="790" y2="104" stroke="#e4e4e7" stroke-width="1"/>
+
+  <!-- ── Application Container (dashed) ── -->
+  <rect x="15" y="125" width="790" height="310" rx="10" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="30" y="118" width="100" height="16" fill="#ffffff"/>
+  <text x="34" y="130" font-size="10" font-weight="700" fill="#52525b">Application</text>
+
+  <!-- ── User Input (left) ── -->
+  <rect x="30" y="160" width="170" height="100" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="115" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">User Input</text>
+  <text x="46" y="204" font-size="10" fill="#52525b">· Slack 알람</text>
+  <text x="46" y="220" font-size="10" fill="#52525b">· 운영/사업팀 문의</text>
+  <text x="46" y="236" font-size="10" fill="#52525b">· 개발팀 규격 문의</text>
+
+  <!-- Arrow to Agent -->
+  <line x1="200" y1="210" x2="280" y2="210" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── Agent (LLM) — center, highlighted ── -->
+  <rect x="282" y="145" width="256" height="150" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="410" y="167" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Agent</text>
+  <text x="410" y="182" text-anchor="middle" font-size="9" fill="#3b82f6">Tool 선택 + 응답 합성</text>
+
+  <rect x="298" y="192" width="224" height="28" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="410" y="210" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">상황 분석 · Tool 선택</text>
+
+  <rect x="298" y="226" width="224" height="28" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="410" y="244" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">Tool 호출 및 결과 수집</text>
+
+  <rect x="298" y="260" width="224" height="28" rx="5" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="410" y="278" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">응답 합성 · SSE 스트리밍</text>
+
+  <!-- Arrow to User Response -->
+  <line x1="538" y1="210" x2="618" y2="210" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── User Response (right) ── -->
+  <rect x="620" y="150" width="170" height="120" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="705" y="172" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">User Response</text>
+  <text x="636" y="194" font-size="10" fill="#52525b">· SSE 실시간 스트리밍</text>
+  <text x="636" y="212" font-size="10" fill="#52525b">· 정의된 응답 규격</text>
+  <text x="636" y="226" font-size="10" fill="#52525b">  (그래프 · 출처 표시)</text>
+  <text x="636" y="244" font-size="10" fill="#52525b">· 좋아요/싫어요 피드백</text>
+
+  <!-- Arrow: Agent ↔ Tools -->
+  <line x1="410" y1="295" x2="410" y2="325" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="420" y="315" font-size="9" fill="#71717a">Tool 호출</text>
+
+  <!-- ── Tools Row ── -->
+  <rect x="30" y="327" width="760" height="90" rx="8" fill="#ffffff" stroke="#d4d4d8" stroke-width="1.5"/>
+  <text x="50" y="349" font-size="11" font-weight="700" fill="#18181b">Tools</text>
+
+  <rect x="46" y="361" width="170" height="46" rx="6" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="131" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#18181b">ElasticSearch</text>
+  <text x="131" y="393" text-anchor="middle" font-size="9" fill="#71717a">로그 · Exception 추적</text>
+
+  <rect x="226" y="361" width="170" height="46" rx="6" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="311" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#18181b">InfluxDB</text>
+  <text x="311" y="393" text-anchor="middle" font-size="9" fill="#71717a">TPS · 시계열 지표</text>
+
+  <rect x="406" y="361" width="170" height="46" rx="6" fill="#fafafa" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="491" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#18181b">MariaDB</text>
+  <text x="491" y="393" text-anchor="middle" font-size="9" fill="#71717a">통계 조회</text>
+
+  <rect x="586" y="361" width="188" height="46" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="680" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">RAG</text>
+  <text x="680" y="393" text-anchor="middle" font-size="9" fill="#3b82f6">Gemini 임베딩 · ES 벡터 스토어</text>
+
+  <!-- Arrow: Application → Trace Store -->
+  <line x1="410" y1="435" x2="410" y2="490" stroke="#d4d4d8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── Observability Layer ── -->
+  <text x="30" y="470" font-size="10" font-weight="700" fill="#a1a1aa" letter-spacing="2">OBSERVABILITY</text>
+  <line x1="30" y1="478" x2="790" y2="478" stroke="#e4e4e7" stroke-width="1"/>
+
+  <rect x="30" y="492" width="760" height="66" rx="8" fill="#ffffff" stroke="#52525b" stroke-width="1.5"/>
+  <text x="410" y="512" text-anchor="middle" font-size="11" font-weight="700" fill="#18181b">Trace Store</text>
+  <text x="410" y="530" text-anchor="middle" font-size="9" fill="#71717a">파이프라인 단계별 실행 시간 · 토큰 · 비용 · RAG Hit/Miss · Tool 선택 결과</text>
+  <text x="410" y="544" text-anchor="middle" font-size="9" fill="#71717a">사용자 피드백(좋아요/싫어요)과 함께 프롬프트·파이프라인 지속 개선의 근거</text>
+
+  <!-- Arrow defs -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#d4d4d8"/>
+    </marker>
+  </defs>
+</svg>
