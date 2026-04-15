@@ -1,8 +1,5 @@
-<svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
+<svg viewBox="0 50 800 570" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
   <rect width="800" height="620" fill="#ffffff"/>
-
-  <!-- Title -->
-  <text x="400" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#18181b">ALIO-GW — 애플리케이션 레벨 Failover</text>
 
   <!-- ── Sender (with Circuit Breaker) — 감지 주체 ── -->
   <rect x="80" y="80" width="320" height="120" rx="8" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>

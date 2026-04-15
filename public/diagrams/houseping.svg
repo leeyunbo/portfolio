@@ -1,8 +1,5 @@
-<svg viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
+<svg viewBox="0 46 820 474" xmlns="http://www.w3.org/2000/svg" font-family="'Pretendard Variable', Pretendard, system-ui, sans-serif">
   <rect width="820" height="520" fill="#ffffff"/>
-
-  <!-- Title -->
-  <text x="410" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#18181b">Houseping — 모듈 의존 관계</text>
 
   <!-- ── Layer 1: app ── -->
   <rect x="310" y="60" width="200" height="56" rx="8" fill="#18181b"/>
